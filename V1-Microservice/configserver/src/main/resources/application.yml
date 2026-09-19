@@ -1,0 +1,42 @@
+spring:
+  application:
+    name: "configserver"
+  profiles:
+    active: git
+  #    active: native
+  cloud:
+    config:
+      server:
+        #native:
+        #search-locations: "file:///C:/Users/Azeem/config/"
+        #search-locations: "classpath:/config"
+        git:
+          uri: "https://github.com/Azeemmobarak/securetrust-config.git"
+          default-label: main
+          timeout: 5
+          clone-on-start: true
+          force-pull: true
+
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  health:
+    readinessstate:
+      enabled: true
+    livenessstate:
+      enabled: true
+  endpoint:
+    health:
+      probes:
+        enabled: true
+
+
+encrypt:
+  key: "7c24497e68270b6d21396b27e8a9cf200ba8b51ea1994e6fe402da13ca32155c"
+
+
+server:
+  port: 8071

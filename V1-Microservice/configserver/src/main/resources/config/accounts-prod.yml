@@ -1,0 +1,11 @@
+build:
+  version: "1.0"
+
+accounts:
+  message: "Welcome to SecureTrust Bank accounts related PROD APIs "
+  contactDetails:
+    name: "James Anderson - Product Owner"
+    email: "ajames@securetrust.com"
+  onCallSupport:
+    - (453) 392-4829
+    - (236) 203-0384
