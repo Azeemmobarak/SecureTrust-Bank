@@ -1,0 +1,32 @@
+# Maven
+**/target/
+
+# IntelliJ IDEA
+.idea/
+*.iml
+out/
+
+# Java
+*.class
+*.log
+
+# Environment variables
+# Keep .env files tracked for personal development
+
+# Local configuration
+# Keep local configuration files tracked
+
+# H2 Database
+# Keep H2 database files tracked if required
+
+# Database data
+# Keep database data tracked if required
+
+# Logs and temporary files
+logs/
+*.tmp
+*.bak
+
+# Operating system
+.DS_Store
+Thumbs.db
