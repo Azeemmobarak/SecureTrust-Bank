@@ -13,9 +13,9 @@ set "SCRIPT_DIR=%~dp0"
 for %%I in ("%SCRIPT_DIR%..") do set "PROJECT_ROOT=%%~fI"
 
 set "DOCKER_NAMESPACE=azeem650"
-set "IMAGE_TAG=v2"
+set "IMAGE_TAG=v3"
 
-set "SERVICES=configserver eurekaserver accounts loans cards"
+set "SERVICES=configserver eurekaserver accounts loans cards gatewayserver"
 
 set "PARALLEL=0"
 set "PUSH=0"
@@ -303,7 +303,7 @@ for %%S in (%SERVICES%) do (
 
     if exist "%LOG_DIR%\%%S.done" (
 
-        for /f "usebackq delims=" %%R in ("%LOG_DIR%\%%S.done") do (
+        for /f "usebackq tokens=1" %%R in ("%LOG_DIR%\%%S.done") do (
             set "RESULT=%%R"
         )
 

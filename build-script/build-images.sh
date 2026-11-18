@@ -13,7 +13,7 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 PROJECT_ROOT="$(cd "${SCRIPT_DIR}/.." && pwd)"
 LOG_DIR="${SCRIPT_DIR}/.build-logs"
 
-DEFAULT_SERVICES=(configserver accounts loans cards)
+DEFAULT_SERVICES=(configserver accounts loans cards gatewayserver)
 
 DOCKER_NAMESPACE="azeem650"
 DEFAULT_IMAGE_TAG="v1"
