@@ -18,16 +18,16 @@ public class GatewayserverApplication {
     @Bean
     public RouteLocator securetrustBankRouteConfig(RouteLocatorBuilder routeLocatorBuilder) {
         return routeLocatorBuilder.routes()
-                .route(p -> p.path("/securetrust/accounts/**")
-                        .filters(f -> f.rewritePath("/securetrust/accounts/(?<segment>.*)", "/${segment}")
+                .route(p -> p.path("/securetrustbank/accounts/**")
+                        .filters(f -> f.rewritePath("/securetrustbank/accounts/(?<segment>.*)", "/${segment}")
                                 .addResponseHeader("X-Response-Time", LocalDateTime.now().toString()))
                         .uri("lb://ACCOUNTS"))
-                .route(p -> p.path("/securetrust/loans/**")
-                        .filters(f -> f.rewritePath("/securetrust/loans/(?<segment>.*)", "/${segment}")
+                .route(p -> p.path("/securetrustbank/loans/**")
+                        .filters(f -> f.rewritePath("/securetrustbank/loans/(?<segment>.*)", "/${segment}")
                                 .addResponseHeader("X-Response-Time", LocalDateTime.now().toString()))
                         .uri("lb://LOANS"))
-                .route(p -> p.path("/securetrust/cards/**")
-                        .filters(f -> f.rewritePath("/securetrust/cards/(?<segment>.*)", "/${segment}")
+                .route(p -> p.path("/securetrustbank/cards/**")
+                        .filters(f -> f.rewritePath("/securetrustbank/cards/(?<segment>.*)", "/${segment}")
                                 .addResponseHeader("X-Response-Time", LocalDateTime.now().toString()))
                         .uri("lb://CARDS"))
                 .build();
