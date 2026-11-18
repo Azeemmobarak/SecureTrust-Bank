@@ -27,6 +27,9 @@ logs/
 *.tmp
 *.bak
 
+# Docker build logs
+build-script/.build-logs/
+
 # Operating system
 .DS_Store
 Thumbs.db
