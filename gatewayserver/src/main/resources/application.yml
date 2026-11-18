@@ -11,6 +11,9 @@ spring:
             locator:
               enabled: true # Set false for custom route configuration...
               lower-case-service-id: true
+          httpclient:
+            connect-timeout: 1000
+            response-timeout: 10s
 
 management:
   endpoints:
@@ -37,3 +40,11 @@ logging:
     com:
       securetrust:
         gatewayserver: DEBUG
+resilience4j:
+  circuitbreaker:
+    configs:
+      default:
+        sliding-window-size: 10
+        permitted-number-of-calls-in-half-open-state: 2
+        failure-rate-threshold: 50
+        wait-duration-in-open-state: 10000
