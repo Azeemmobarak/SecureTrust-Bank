@@ -13,7 +13,7 @@ set "SCRIPT_DIR=%~dp0"
 for %%I in ("%SCRIPT_DIR%..") do set "PROJECT_ROOT=%%~fI"
 
 set "DOCKER_NAMESPACE=azeem650"
-set "IMAGE_TAG=v3"
+set "IMAGE_TAG=v4"
 
 set "SERVICES=configserver eurekaserver accounts loans cards gatewayserver"
 

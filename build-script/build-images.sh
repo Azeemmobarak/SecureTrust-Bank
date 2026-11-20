@@ -16,7 +16,7 @@ LOG_DIR="${SCRIPT_DIR}/.build-logs"
 DEFAULT_SERVICES=(configserver accounts loans cards gatewayserver)
 
 DOCKER_NAMESPACE="azeem650"
-DEFAULT_IMAGE_TAG="v1"
+DEFAULT_IMAGE_TAG="v4"
 
 PARALLEL=false
 PUSH=false
