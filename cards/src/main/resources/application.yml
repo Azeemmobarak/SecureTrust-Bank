@@ -69,3 +69,10 @@ logging:
     com:
       securetrust:
         cards: DEBUG
+
+resilience4j:
+  bulkhead:
+    configs:
+      default:
+        max-concurrent-calls: 2
+        max-wait-duration: 1

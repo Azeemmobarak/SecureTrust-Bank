@@ -6,6 +6,7 @@ import com.securetrust.cards.dto.CardsDto;
 import com.securetrust.cards.dto.ErrorResponseDto;
 import com.securetrust.cards.dto.ResponseDto;
 import com.securetrust.cards.service.ICardsService;
+import io.github.resilience4j.bulkhead.annotation.Bulkhead;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -192,11 +193,20 @@ public class CardsController {
             )
     }
     )
+    @Bulkhead(name = "getBuildInfo", fallbackMethod = "getBuildInfoFallback")
     @GetMapping("/build-info")
-    public ResponseEntity<String> getBuildInfo() {
+    public ResponseEntity<String> getBuildInfo() throws InterruptedException {
+        logger.debug("getBuildInfo() method Invoked");
+        Thread.sleep(6000); // simulate a slow call so concurrency limit is easy to hit
         return ResponseEntity
                 .status(HttpStatus.OK)
                 .body(buildVersion);
+    }
+
+    public ResponseEntity<String> getBuildInfoFallback(Throwable throwable) {
+        logger.debug("getBuildInfoFallback() method Invoked");
+        return ResponseEntity.status(HttpStatus.OK)
+                .body("GetBuildInfo API Fallback - Too many concurrent requests, please try again later!!!");
     }
 
     @Operation(
